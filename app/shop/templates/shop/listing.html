@@ -1,0 +1,30 @@
+{% extends "shop/products.html" %}
+
+{% block content %}
+<div class="well well-sm">
+    <strong>Список товарів</strong>
+</div>
+<div id="products" class="row list-group">
+    {% for product in products %}
+        <div class="item col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="{{ product.image.url }}" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        <a href="/{{ product.id }}">{{ product.title }}</a>
+                    </h4>
+                    <p class="group inner list-group-item-text">{{ product.description | truncatechars:150 }}</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">${{ product.price }}</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="#">Додати в кошик</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

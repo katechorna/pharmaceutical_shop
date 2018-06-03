@@ -1,0 +1,33 @@
+{% extends "shop/products.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-4 item-photo">
+        <img style="max-width:100%;" src="/{{ product.image.url }}" />
+    </div>
+    <div class="col-xs-5" style="border:0px solid gray">
+        <h3>{{ product.title }}</h3>
+        <h5 style="color:#337ab7">Виробник: {{ product.producer }}</h5>
+        <h3 style="margin-top:0px;">${{ product.price}}</h3>
+
+        <!-- Botones de compra -->
+        <div class="section" style="padding-bottom:20px;">
+            <button class="btn btn-success">
+                <span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                Додати в кошик
+            </button>
+        </div>
+    </div>
+
+    <div class="col-xs-9">
+        <div style="width:100%;border-top:1px solid silver">
+            <p style="padding:15px;">
+                <small>{{ product.description }}</small>
+            </p>
+            <small>
+                <p style="padding:15px;">Дозування: {{ product.dosage }}</p>
+                <p style="padding:15px;">Зберігання: {{ product.storage_conditions }}</p>
+            </small>
+        </div>
+    </div>
+{% endblock %}
